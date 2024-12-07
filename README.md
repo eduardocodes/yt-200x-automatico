@@ -4,10 +4,10 @@
 
 ## URLs
 
-Gerar imagem Leonardo AI - https://cloud.leonardo.ai/api/rest/v1/generations
-Buscar imagem Leonardo AI - https://cloud.leonardo.ai/api/rest/v1/generations/[INSERIR_GENERATION_ID]
-Gerar vídeo JSON2Video - https://api.json2video.com/v2/movies
-Gerar áudio Elevenlabs - https://api.elevenlabs.io/v1/text-to-speech/[INSERIR_VOICE_ID]
+Gerar imagem Leonardo AI - https://cloud.leonardo.ai/api/rest/v1/generations<br>
+Buscar imagem Leonardo AI - https://cloud.leonardo.ai/api/rest/v1/generations/[INSERIR_GENERATION_ID]<br>
+Gerar vídeo JSON2Video - https://api.json2video.com/v2/movies<br>
+Gerar áudio Elevenlabs - https://api.elevenlabs.io/v1/text-to-speech/[INSERIR_VOICE_ID]<br>
 
 ## 👨‍💻 Códigos
 
