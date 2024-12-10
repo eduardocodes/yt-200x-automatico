@@ -16,42 +16,39 @@ Gerar áudio Elevenlabs - https://api.elevenlabs.io/v1/text-to-speech/[INSERIR_V
 ```bash
 -- Criação da tabela "scenes"
 CREATE TABLE scenes (
-    id BIGINT NOT NULL,
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, -- ID gerado automaticamente como numérico
     scene TEXT NOT NULL,
     ai_image_prompt TEXT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(), -- Valor padrão para data de criação
     image_url TEXT NULL,
-    generation_id TEXT NULL,
-    PRIMARY KEY (id)
+    generation_id TEXT NULL
 );
 
 -- Criação da tabela "stories"
 CREATE TABLE stories (
-    id BIGINT NOT NULL,
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY, -- ID gerado automaticamente como UUID
     script TEXT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(), -- Valor padrão para data de criação
     complete_video TEXT NULL,
     prompt TEXT NOT NULL,
     "aspect ratio" VARCHAR NOT NULL,
     width INTEGER NOT NULL,
     height INTEGER NOT NULL,
-    style VARCHAR NOT NULL,
+    style VARCHAR NOT NULL DEFAULT 'Default Style', -- Valor padrão para a coluna style
     leonardo_width INTEGER NULL,
-    leonardo_height INTEGER NULL,
-    PRIMARY KEY (id)
+    leonardo_height INTEGER NULL
 );
 
 -- Criação da tabela "video_jobs"
 CREATE TABLE video_jobs (
-    id INTEGER NOT NULL,
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, -- ID gerado automaticamente como numérico
     project_id VARCHAR NOT NULL,
     video_url VARCHAR NULL,
     audio_url VARCHAR NULL,
     merged_url VARCHAR NULL,
-    created_at TIMESTAMP WITH TIME ZONE NULL,
-    updated_at TIMESTAMP WITH TIME ZONE NULL,
-    project_id_merged VARCHAR NULL,
-    PRIMARY KEY (id)
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(), -- Valor padrão para data de criação
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(), -- Valor padrão para data de atualização
+    project_id_merged VARCHAR NULL
 );
 ```
 
